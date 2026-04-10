@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - sqlite_data:/app/data
+    environment:
+      DATABASE_URL: sqlite:////app/data/travel.db
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:
